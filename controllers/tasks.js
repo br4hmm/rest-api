@@ -5,28 +5,24 @@ const getTasks = (req, res) => {
 };
 
 const getTask = (req, res) => {
-  const id = req.params.id;
-  const task = tasks.find(task => task.id === Number(id));
+  const task = tasks.find(task => task.id === Number(req.params.id));
   res.status(200).json(task);
 };
 
 const createTask = (req, res) => {
-  const title = req.body.title;
-  const task = { id: Date.now(), title };
+  const task = { id: Date.now(), title: req.body.title };
   tasks.unshift(task);
-  res.status(201).json({ msg: 'New task added', task });
+  res.status(201).json({ msg: 'New task added' });
 };
 
 const updateTask = (req, res) => {
-  const id = req.params.id;
-  const task = tasks.find(task => task.id === Number(id));
+  const task = tasks.find(task => task.id === Number(req.params.id));
   task.title = req.body.title;
   res.status(200).json({ msg: 'Task updated' });
 };
 
 const deleteTask = (req, res) => {
-  const id = req.params.id;
-  tasks = tasks.filter(task => task.id !== Number(id));
+  tasks = tasks.filter(task => task.id !== Number(req.params.id));
   res.status(200).json({ msg: 'Task deleted' });
 };
 
