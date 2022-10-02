@@ -1,0 +1,26 @@
+{
+  "name": "rest-api",
+  "version": "1.0.0",
+  "description": "Simple CRUD API built with Express.js",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/br4hmm/rest-api.git"
+  },
+  "keywords": [],
+  "author": "Ibrahim Abu Ghali",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/br4hmm/rest-api/issues"
+  },
+  "homepage": "https://github.com/br4hmm/rest-api#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
