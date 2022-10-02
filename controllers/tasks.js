@@ -1,17 +1,4 @@
-let tasks = [
-  {
-    id: 1,
-    title: 'Buy Milk',
-  },
-  {
-    id: 2,
-    title: 'Study Math',
-  },
-  {
-    id: 3,
-    title: 'Finish Project',
-  },
-];
+let tasks = [];
 
 const getTasks = (req, res) => {
   res.status(200).json(tasks);
@@ -30,7 +17,12 @@ const createTask = (req, res) => {
   res.status(201).json({ msg: 'New task added', task });
 };
 
-const updateTask = (req, res) => {};
+const updateTask = (req, res) => {
+  const id = req.params.id;
+  const task = tasks.find(task => task.id === Number(id));
+  task.title = req.body.title;
+  res.status(200).json({ msg: 'Task updated' });
+};
 
 const deleteTask = (req, res) => {
   const id = req.params.id;
